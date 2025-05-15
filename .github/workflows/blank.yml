@@ -13,10 +13,6 @@ jobs:
 
     # 执行流程 （多个步骤）
     steps:
-      # 调用工具， 模拟 git clone && cd $project_dir
-      - name: 检出代码V4
-        uses: actions/checkout@v4
-        # ok
-      - name: ok
-        run: echo 'okay'
+      - name: 加密
+        run: echo ${{ secrets.HELLO__WORLD }}
           

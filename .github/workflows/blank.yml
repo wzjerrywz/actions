@@ -15,6 +15,6 @@ jobs:
         uses: actions/checkout@v4  
       - name: Run a script
         run: |
-          chmod +x ./hello.sh
-          ./hello.sh
+          chmod +x ./www.sh
+          ./www.sh
           

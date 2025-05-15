@@ -7,4 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test-${{ github.actor }}
-        run: echo ${{ github.actor }}
+        run: |
+          echo ${{ github.actor }}
+           echo workflow ${{ github.workflow }}

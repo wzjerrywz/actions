@@ -1,49 +1,22 @@
-
+# 工作流名称
 name: CI
+
+# 触发事件  （ workflow_dispatch： 手动点击  ）
 on: workflow_dispatch
 
+## 多个任务， 默认并行
 jobs:
-  build:
+  # 任务名称 （ 自定义 ）
+  build_hello_name:
+    # 指定任务运行在哪个操作系统上
     runs-on: ubuntu-latest
+
+    # 执行流程 （多个步骤）
     steps:
-      - name: test-${{ github.actor }}
-        run: |
-          echo "github.action: ${{ github.action }}"
-          echo "github.action_path: ${{ github.action_path }}"
-          echo "github.action_ref: ${{ github.action_ref }}"
-          echo "github.action_repository: ${{ github.action_repository }}"
-          echo "github.action_status: ${{ github.action_status }}"
-          echo "github.actor: ${{ github.actor }}"
-          echo "github.actor_id: ${{ github.actor_id }}"
-          echo "github.api_url: ${{ github.api_url }}"
-          echo "github.base_ref: ${{ github.base_ref }}"
-          echo "github.env: ${{ github.env }}"
-          echo "github.event: ${{ toJson(github.event) }}"
-          echo "github.event_name: ${{ github.event_name }}"
-          echo "github.event_path: ${{ github.event_path }}"
-          echo "github.graphql_url: ${{ github.graphql_url }}"
-          echo "github.head_ref: ${{ github.head_ref }}"
-          echo "github.job: ${{ github.job }}"
-          echo "github.path: ${{ github.path }}"
-          echo "github.ref: ${{ github.ref }}"
-          echo "github.ref_name: ${{ github.ref_name }}"
-          echo "github.ref_protected: ${{ github.ref_protected }}"
-          echo "github.ref_type: ${{ github.ref_type }}"
-          echo "github.repository: ${{ github.repository }}"
-          echo "github.repository_id: ${{ github.repository_id }}"
-          echo "github.repository_owner: ${{ github.repository_owner }}"
-          echo "github.repository_owner_id: ${{ github.repository_owner_id }}"
-          echo "github.repositoryUrl: ${{ github.repositoryUrl }}"
-          echo "github.retention_days: ${{ github.retention_days }}"
-          echo "github.run_id: ${{ github.run_id }}"
-          echo "github.run_number: ${{ github.run_number }}"
-          echo "github.run_attempt: ${{ github.run_attempt }}"
-          echo "github.secret_source: ${{ github.secret_source }}"
-          echo "github.server_url: ${{ github.server_url }}"
-          echo "github.sha: ${{ github.sha }}"
-          echo "github.token: ${{ github.token }}"
-          echo "github.triggering_actor: ${{ github.triggering_actor }}"
-          echo "github.workflow: ${{ github.workflow }}"
-          echo "github.workflow_ref: ${{ github.workflow_ref }}"
-          echo "github.workflow_sha: ${{ github.workflow_sha }}"
-          echo "github.workspace: ${{ github.workspace }}"  
+      # 调用工具， 模拟 git clone && cd $project_dir
+      - name: 检出代码V4
+        uses: actions/checkout@v4
+        # ok
+      - name: ok
+        run: okay
+          

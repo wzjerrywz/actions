@@ -9,5 +9,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repository to the runner
-        run: ${{ format('Hello++{0}++{1}++{2}', 'Mona', 'the', 'Octocat') }}
+        run: echo  ${{ format('Hello++{0}++{1}++{2}', 'Mona', 'the', 'Octocat') }}
           

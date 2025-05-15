@@ -4,16 +4,12 @@ name: CI
 # 触发事件  （ workflow_dispatch： 手动点击  ）
 on: workflow_dispatch
 
-## 多个任务， 默认并行
 jobs:
-  # 任务名称 （ 自定义 ）
-  build_hello_name:
-    # 判断条件成立---> 才会执行
-    if: github.workflow == 'cia'
-    # 指定任务运行在哪个操作系统上
+  example-job:
     runs-on: ubuntu-latest
-    # 执行流程 （多个步骤）
     steps:
-      - name: 加密
-        run: echo ${{ secrets.HELLO__WORLD }}
+      - name: Check out the repository to the runner
+        uses: actions/checkout@v4  
+      - name: Run a script
+        run: ./my-script.sh
           

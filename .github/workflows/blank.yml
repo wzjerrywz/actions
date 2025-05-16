@@ -2,7 +2,8 @@
 name: CI
 
 # 触发事件  （ workflow_dispatch： 手动点击  ）
-on: workflow_dispatch
+# on: workflow_dispatch
+on: [ push ]
 
 jobs:
   example-job:

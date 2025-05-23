@@ -1,0 +1,25 @@
+name: Test Custom Action
+
+on:
+  workflow_dispatch:
+    inputs:
+      test-name:
+        description: '测试名称'
+        required: true
+        default: 'Test Runner'
+      test-env:
+        description: '测试环境'
+        type: choice
+        options: [dev, test, prod]
+        default: 'test'
+      test-debug:
+        description: '调试模式'
+        type: boolean
+        default: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
